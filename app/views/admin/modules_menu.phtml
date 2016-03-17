@@ -1,0 +1,9 @@
+<? if (isset($modules) && count($modules)) { ?>
+	<ul>
+		<? foreach ($modules as $module)  { ?>
+			<li>
+				<?$module->display_menu_item()?>
+			</li>
+		<? } ?>
+	</ul>
+<? } ?>

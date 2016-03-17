@@ -1,0 +1,5 @@
+<?xml version='1.0' standalone='yes'?>
+<module>
+	<name>Цены на ТО</name>
+	<object>to</object>
+</module>

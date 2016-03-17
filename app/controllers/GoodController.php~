@@ -1,0 +1,14 @@
+<?php
+
+class GoodController extends \Phalcon\Mvc\Controller
+{
+    public function indexAction()
+    {
+    	//$this->view->setRenderLevel(\Phalcon\Mvc\View::
+
+    }
+    
+    public function addAction() {
+    	$this->view->setRenderLevel(View::LEVEL_NO_RENDER);
+    }
+}

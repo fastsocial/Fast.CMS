@@ -1,0 +1,139 @@
+﻿<div class="banner-element">
+	<ul class="items">
+		<li class="item" data-target="parts">
+			<a href="http://parts-de.ru">
+				<div class="shape left">
+					<div class="img">
+						<img src="/img/banner/1.jpg" data-hover="/img/img2.jpg">
+						<div class="fade-text-info">
+							<span class="dummy"></span><p>Интернет-магазин<br>parts-de.ru</p>
+						</div>
+					</div>
+				</div>
+				<span class="button-block">запчасти</span>
+			</a/>
+		</li>
+		<li class="item active" data-target="service">
+			<a data-href=".banner-content-element" class="anchor-scroll">
+				<div class="shape">
+					<div class="img"><img src="/img/banner/2.jpg" data-hover="/img/img2.jpg"></div>
+				</div>
+				<span class="button-block">сервис</span>
+			</a>
+		</li>
+		<li class="item" data-target="discount">
+			<a data-href=".banner-content-element" class="anchor-scroll">
+				<div class="shape">
+					<div class="img">
+						<img src="/img/banner/3.jpg" data-hover="/img/img2.jpg">
+						<div class="fade-text-info">
+							<span class="dummy"></span><p>Акции и<br> скидки</p>
+						</div>
+					</div>
+				</div>
+				<span class="button-block">скидки</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="banner-content-element">
+	<span class="spacer-element"></span>
+	<div class="items">
+		<div class="special-offers-element" data-target="service">
+			<? foreach (Services::find(array("is_special" => 1, "limit" => 3)) as $i => $item) { ?>
+				<a class="anchor-scroll" data-href=".order-element" class="offer-<?=$i+1?>">
+					<div class="offer">
+						<img src="/img/<?=$item->img?>">
+						<p class="description"><?=$item->name?><br> от <?=$item->price?>р!</p>
+					</div>
+				</a>
+			<? } ?>
+		</div>
+		<div data-target="discount">
+			<?=$this->utils->get_text("discounts")?>
+			<?// foreach (ActionsGroups::find() as $i => $item) { ?>
+				<!--<h2 class="list-header-element"><?//=$item->name?></h2>
+				<ul class="list-element">
+					<?// foreach ($item->getActions() as $i => $action) { ?>
+						<li><span><?=$action->name?></span>
+						<div class="content">
+							<?//=$action->content;?>
+							<center><a data-href=".order-element" class="button anchor-scroll default">запись на сервис</a></center>
+						</div>
+						</li>-->
+					<? //} ?>
+				</ul>
+			<? //} ?>
+		</div>
+	</div>
+	<span class="spacer-element"></span>
+</div>
+
+<div class="order-element">
+	<form class="to" action="order/ToCreate" method="POST">
+		<h2>Запись на ТО</h2>
+		<div>
+			<p class="header required">Ваше имя</p>
+			<img class="icon" src="/img/info-icons/user.png">
+			<input type="text" placeholder="Имя"></input>
+		</div>
+		<div>
+			<p class="header required">Телефон для связи</p>
+			<img class="icon" src="/img/info-icons/phone.png">
+			<input type="text" placeholder="+7(903)888-88-88"></input>
+		</div>
+		<div>
+			<p class="header required">Удобное время</p>
+			<img class="icon" src="/img/info-icons/tick.png">
+			
+			<input type="text"></input>
+		</div>
+		<div>
+			<input type="submit" name="order" class='default' value="записаться"></input>
+		</div>
+	</form>
+	
+	<form class="to-complect" action="order/ToComplect" method="POST">
+		<h2>Заказать комплект для ТО</h2>
+		<div>
+			<p class="header required">Ваше имя</p>
+			<img class="icon" src="/img/info-icons/user.png">
+			<input type="text" placeholder="Имя"></input>
+		</div>
+		<div>
+			<p class="header required">Телефон для связи</p>
+			<img class="icon" src="/img/info-icons/phone.png">
+			<input type="text" placeholder="+7(903)888-88-88"></input>
+		</div>
+		<div>
+			<p class="header required">VIN автомобиля (не обязательно)</p>
+			<img class="icon" src="/img/info-icons/tick.png">
+			
+			<input type="text"></input>
+		</div>
+		<div>
+			<p class="header required">Пробег тыс. км.</p>
+			<div style='margin-top: 20px;'>
+				<input type="hidden" class="slider-input mileage-element" value="30" />
+			</div>
+		</div>
+		<div>
+			<input type="submit" name="order" class='default' value="записаться"></input>
+		</div>
+	</form>
+</div>
+<!--<div class="services-slider-element">
+	<span class="spacer-element"></span>
+	<div class="items">
+		<div class="service-element">
+			<div class="img">
+				<img src="/img/banner/car.png">
+			</div>
+			<h2>Замена масла Audi</h2>
+			<p>Описание услуги</p>
+			<a data-href=".order-element" class="anchor-scroll">
+				<button class="big">записаться</button>
+			</a>
+		</div>
+	</div>
+</div>-->

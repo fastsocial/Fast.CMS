@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Моя ЦМСка!</title>
+		<script type="text/javascript" src="/js/script.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/admin/style.css">
+		
+	</head>
+	<body>
+		<div class="modules-menu-element">
+			<div class="main-menu-element">
+			</div>
+			<?=$this->partial("admin/modules_menu", array(
+					"modules" => $admin_data["modules"],
+				));
+			?>
+		</div>
+		<div class="wrapper-element">
+			<div class="header-element">
+				<div class="main-element">
+					<img class="logo" src="/img/admin/logo.jpg">
+					
+					<h1 style="font-size: 40px;">Администрирование</h1>
+				</div>
+				
+			</div>
+			<span class="spacer-element"></span>
+			<div class="content-element">
+				<?php echo $this->getContent() ?>
+			</div>
+			<div class="footer-element">
+				<span class="spacer-element"></span>
+				<p>система даминистрирования</p>
+			</div>
+		</div>
+	</body>
+</html>
